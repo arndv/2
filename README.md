@@ -297,23 +297,23 @@ List<string> list = new List<string>
             
             static void Main(string[] args)
             {
-            int[] nums = Console.ReadLine().Split(',').Select(int.Parse).ToArray(); //2Т
+            int[] nums = Console.ReadLine().Split(',').Select(int.Parse).ToArray(); 
 
             List<int> evens = new List<int>(); 
             List<int> odds = new List<int>();  
             List<int> sum5 = new List<int>();  
 
-            for (int i = 0; i < nums.Length; i++) //1Т
+            for (int i = 0; i < nums.Length; i++) 
             {
-                if (nums[i] % 2 == 0) //2Т
+                if (nums[i] % 2 == 0) 
                 {
                     evens.Add(nums[i]);
                 }
                 else
-                {//1Т
+                {
                     odds.Add(nums[i]);
                 }
-                if (SumDigits(nums[i]) % 10 == 5)//2Т
+                if (SumDigits(nums[i]) % 10 == 5)
                 {
                     sum5.Add(nums[i]); 
                 }
@@ -326,7 +326,7 @@ List<string> list = new List<string>
         {
             int sum = 0;
 
-            while (number != 0) //2Т
+            while (number != 0) 
             {
                 sum += number % 10;
                 number /= 10;
@@ -336,5 +336,28 @@ List<string> list = new List<string>
         }
                                             
                                             
+//Великденски яйца
                                             
-        
+    static void Main(string[] args)
+        {
+            Dictionary<string, int> dict = new Dictionary<string, int>();
+            int eggs = int.Parse(Console.ReadLine()); 
+            for (int i = 0; i < eggs; i++) 
+            {
+                string color = Console.ReadLine(); 
+                if (!dict.ContainsKey(color)) 
+                {
+                    dict.Add(color, 0); 
+                }
+                dict[color]++;
+            }
+
+            Console.WriteLine($"Red eggs: {(dict.ContainsKey("red") ? dict["red"] : 0)}"); 
+            Console.WriteLine($"Orange eggs: {(dict.ContainsKey("orange") ? dict["orange"] : 0)}"); 
+            Console.WriteLine($"Blue eggs: {(dict.ContainsKey("blue") ? dict["blue"] : 0)}");
+            Console.WriteLine($"Green eggs: {(dict.ContainsKey("green") ? dict["green"] : 0)}");
+            Console.WriteLine($"Max eggs: {dict.Values.Max()} -> {dict.OrderByDescending(x => x.Value).FirstOrDefault().Key}");
+        }                                           
+                                            
+Посочете по кой от начините бихте инициализирали речник с ключ низ и стойност цяло число?
+                                     Dictionary<string,int> dict = new Dictionary<string,int>();
